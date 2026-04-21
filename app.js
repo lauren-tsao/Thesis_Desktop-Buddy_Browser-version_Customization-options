@@ -1,6 +1,8 @@
 import { selectedCharacter } from "./character.js";
 import { stateMachine } from "./stateMachine.js";
 import { hopper } from "./characters/hopper-all.js";
+import { groovy } from "./characters/groovy-all.js";
+import { turnip } from "./characters/turnip-all.js";
 
 //// ELEMENTS ////
 
@@ -11,20 +13,55 @@ const bubbleText = document.getElementById("bubbleText");
 const input = document.getElementById("bubbleInput");
 const sendBtn = document.getElementById("bubbleSend");
 
+// character switch buttons
+const hopperBtn = document.getElementById("hopperBtn");
+const groovyBtn = document.getElementById("groovyBtn");
+const turnipBtn = document.getElementById("turnipBtn");
+
 
 //// MINIKIN CHARACTER ////
 
-const character = selectedCharacter({
-  lottieContainer: minikin,
-  lottiePath: hopper.lottiePath,
-  frames: stateMachine.frames,
-  options: {
-    enablePat: true,
-    enableStretch: true,
-    enableHydrate: true,
-    debug: true
+// character choices
+const characters = {
+  hopper,
+  groovy,
+  turnip
+};
+
+let currentCharacter = "hopper";
+let character;
+let lastRainState = null;
+
+function loadCharacter(name) {
+  if (!characters[name]) return;
+
+  currentCharacter = name;
+
+  // remove old character from container
+  minikin.innerHTML = "";
+
+  // create new character
+  character = selectedCharacter({
+    lottieContainer: minikin,
+    lottiePath: characters[currentCharacter].lottiePath,
+    frames: stateMachine.frames,
+    options: {
+      enablePat: true,
+      enableStretch: true,
+      enableHydrate: true,
+      debug: true
+    }
+  });
+
+  // restart hydration/stretch schedule for new character
+  character.startQuartHrSchedule();
+
+  // keep current weather mode after switching
+  if (lastRainState !== null) {
+    const nextMode = lastRainState ? "rain" : "default";
+    character.setMode(nextMode);
   }
-});
+}
 
 
 //// BUBBLE UI ////
@@ -141,9 +178,6 @@ async function getIsRaining(city = WEATHER_CITY) {
 }
 
 
-let lastRainState = null;
-
-
 async function pollWeatherAndUpdateMode() {
 
   try {
@@ -207,7 +241,7 @@ async function sendQuestion() {
       return;
     }
 
-
+    // FOR ASKING TIME & DATE IN OTHER CITIES
     // if (qSent.includes("time") || qSent.includes("date")) {
 
     //   const CITY_TIMEZONES = {
@@ -281,15 +315,19 @@ input.addEventListener("keydown", (e) => {
 
 });
 
+// character switch buttons
+hopperBtn.addEventListener("click", () => loadCharacter("hopper"));
+groovyBtn.addEventListener("click", () => loadCharacter("groovy"));
+turnipBtn.addEventListener("click", () => loadCharacter("turnip"));
+
 
 //// INITIALIZE ////
-
-// start MiniKin's hydration/stretch schedule
-character.startQuartHrSchedule();
 
 // ANCHOR - FORCE RAIN TOGGLE
 // set weather override
 FORCE_RAIN = null;
+
+loadCharacter(currentCharacter);
 
 // run weather check
 pollWeatherAndUpdateMode();

@@ -106,6 +106,7 @@ select {
   outline: none;
 }
 
+/* send button */
 #bubbleSend {
   font-size: 12px;
   color: white;
@@ -194,9 +195,13 @@ select {
 }
 
 #section-01 {
-  height:50%;
+  /* height:50%; */
   display: flex;
   gap: 1%;
+}
+
+.section {
+  margin: 2%;
 }
 
 
