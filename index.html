@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>MiniKin</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <!-- CASE STUDY WINDOW -->
+  <div class="caseStudy">
+    <div class="container">
+      <div class="content">
+
+        <div class="prototype-container">
+          <iframe
+            src="https://embed.figma.com/proto/OvzLIxjBdIgXOPED8MMv3k/Thesis-Project---MiniKin?node-id=995-178&scaling=fill&content-scaling=fill&starting-point-node-id=995%3A178&page-id=995%3A126&embed-host=share">
+          </iframe>
+        </div>
+
+      </div>
+      <div class="footer">
+        <h1>Contact Me</h1>
+        <p><strong>Email:</strong><br><a href="mailto:enwei.tsao@email.com">enwei.tsao@gmail.com</a>
+        <p><strong>Portfolio:</strong><br><a href="https://www.lauren-tsao.com" target="_blank">lauren-tsao.com</a>
+        <p><strong>LinkedIn:</strong><br><a href="https://www.linkedin.com/in/enweitsao/" target="_blank">linkedin.com/in/enweitsao/</a>
+      </div>
+    </div>
+
+    <!-- LOTTIE PET CONTAINER -->
+    <div id="minikin" aria-label="MiniKin" role="button"></div>
+
+    <!-- SPEECH BUBBLE -->
+    <div id="bubble" class="hidden" role="dialog" aria-label="MiniKin chat bubble">
+      <div id="bubbleText">MiniKin opening text here</div>
+
+      <div id="bubbleInputRow">
+        <input id="bubbleInput" type="text" placeholder="What's on your mind?" aria-label="Chat input" />
+        <button id="bubbleSend" type="button">Send</button>
+      </div>
+    </div>
+
+    <div class="loading-text">loading...</div>
+
+    <div class="browser-background"></div>
+
+    <!-- LOTTIE PLAYER -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <!-- RENDERER -->
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>

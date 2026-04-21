@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>MiniKin</title>
+  <link rel="stylesheet" href="index-wo-prototype.css" />
+</head>
+
+<body>
+  <!-- CASE STUDY WINDOW -->
+  <div class="caseStudy">
+    <div class="container">
+      <div class="header">
+        <h1>MiniKin: The Face of Implicit Interaction</h1>
+      </div>
+      <div class="menu">
+        <a href="#section-01">About</a>
+        <p>
+          <a href="#section-02">Concept</a>
+        <p>
+          <a href="#section-03">Features</a>
+        <p>
+          <a href="#section-04">Process</a>
+        <p>
+          <a href="#section-05">Next Steps</a>
+      </div>
+      <div class="content">
+        <div id="section-01">
+          <div>
+          <h2>About</h2>
+          <div>MiniKin is a <strong>virtual pet</strong> that resides on the user’s desktop as an ambient presence.
+            <p>It <strong>supports daily
+            routines</strong> through wellness checks, event notifications and weather updates by using <strong>implicit
+            behavioral cues</strong> rather than explicit notifications.</div>
+            </div>
+          <div><img src="./assets/caseStudy/anim_Option-C_Hopper_default_idle_white-BG.gif" alt="GIF of MiniKin" height="100%"></div>
+        </div>
+        <div id="section-02">
+          <h2>Concept</h2>
+          <div>
+            <h3>MiniKin's Purpose</h3>As a research artifact of my thesis, MiniKin's purpose is to highlight the untapped potential
+            of virtual pets as the face of implicit interaction, pointing towards a new paradigm of UI design.
+          </div>
+          <div>
+            <h3>Themes it explores</h3>
+            <ul>
+              <li>Virtual pets, like real-life pets, establish emotional connection through behavioral consistency, presence, and responsiveness. </li>
+              <p>
+                <li>Virtual pets can leverage emotional connection to be more effective than conventional interfaces in improving the lives of users through implicit interaction.
+                </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Implicit Interaction vs. Explicit Interaction</h3>
+            <ul>
+              <li>Operates in the background, requiring little to no
+                direct attention from the user.</li>
+              <p>
+                <li>Intuitive and unobtrusive, unlike explicit interactions that are directive and
+                  attention-demanding.</li>
+              <p>
+                <li>Proactive, anticipating user needs and acting without requiring direct commands.
+                </li>
+          </div>
+        </div>
+        <div id="section-03">
+          <h2>Features</h2>
+          <div>
+            <h3>Weather Updates</h3>
+            <ul>
+              <li>Through outfits, MiniKin informs user of the weather (e.g. wears a raincoat when it is raining)</li>
+              <p>
+                <li>Clothing is a form of universal visual language</li>
+              <p>
+                <li>User infers what this means instead of being told that it is raining</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Event Notifications</h3>
+            <ul>
+              <li>On special events, MiniKin will wear an accessory related to the event</li>
+              <p>
+                <li>For example, if it is someone’s birthday, MiniKin will wear a party hat</li>
+              <p>
+                <li>User can then ask MiniKin whose birthday is it</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Wellness Checks</h3>
+            <ul>
+              <li>MiniKin drinks water every 15 mins and stretches every 30 mins</li>
+              <p>
+                <li>A silent encouragement for the user to mirror its actions</li>
+              <p>
+                <li>A behavioral suggestion instead of verbal instruction</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Bedtime Reminders</h3>
+            <ul>
+              <li>MiniKin dozes off at 11.30pm and sleeps until 7:00am</li>
+              <p>
+                <li>A quiet indication for the user to go to bed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <h1>Contact Me</h1>
+        <p><strong>Email:</strong><br>enwei.tsao@gmail.com
+        <p><strong>Portfolio:</strong><br>lauren-tsao.com
+        <p><strong>LinkedIn:</strong><br>linkedin.com/in/enweitsao/
+      </div>
+    </div>
+
+    <!-- LOTTIE PET CONTAINER -->
+    <div id="minikin" aria-label="MiniKin" role="button"></div>
+
+    <!-- SPEECH BUBBLE -->
+    <div id="bubble" class="hidden" role="dialog" aria-label="MiniKin chat bubble">
+      <div id="bubbleText">MiniKin opening text here</div>
+
+      <div id="bubbleInputRow">
+        <input id="bubbleInput" type="text" placeholder="What's on your mind?" aria-label="Chat input" />
+        <button id="bubbleSend" type="button">Send</button>
+      </div>
+    </div>
+
+    <div class="browser-background"></div>
+
+    <!-- LOTTIE PLAYER -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <!-- RENDERER -->
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>

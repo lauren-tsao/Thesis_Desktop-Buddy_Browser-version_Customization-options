@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap');
+
+body {
+  margin: 0;
+  width: 400px;
+  height: 200px;
+  background: transparent;
+  overflow: hidden;
+  font-family: 'Inclusive Sans', sans-serif;
+}
+
+#bubbleInput,
+#bubbleSend,
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* wrap minikin + bubble so click-through can be toggled for both */
+#minikin {
+  width: 140px;
+  margin-right: 20px;
+  height: auto;
+  position: absolute;
+  right: 0;
+  bottom: -16px;
+  user-select: none;
+  position: fixed;
+}
+
+#bubble {
+  position: absolute;
+  border: 2px solid black;
+  right: 160px;
+  bottom: 60px;
+  max-width: 220px;
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 12px;
+}
+
+/* so its not accidentally non-interactive */
+#bubble, #bubble * {
+  pointer-events: auto;
+}
+
+/* Bubble tail pointing to the MiniKin (on the right) */
+/* OUTLINE TRIANGLE (bigger, black) */
+#bubble::before {
+  content: "";
+  position: absolute;
+
+  right: -12px;   /* 2px further out than fill */
+  bottom: 15px;   /* slightly adjusted */
+
+  width: 0;
+  height: 0;
+
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid black;  /* outline color */
+}
+
+/* FILL TRIANGLE */
+#bubble::after {
+  content: "";
+  position: absolute;
+
+  right: -10px;
+  bottom: 16.5px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 10.5px solid transparent;
+  border-bottom: 10.5px solid transparent;
+  border-left: 10.5px solid white; /* bubble background */
+}
+
+#bubble.hidden {
+  display: none;
+}
+
+#bubbleText {
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  word-wrap: break-word;
+}
+
+#bubbleInputRow {
+  display: flex;
+  gap: 6px;
+}
+
+#bubbleInput {
+  flex: 1;
+  font-size: 12px;
+  color: black;
+  padding: 6px 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+  outline: none;
+}
+
+#bubbleSend {
+  font-size: 12px;
+  color: white;
+  padding: 6px 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background: black;
+  cursor: pointer;
+}
+
+#bubbleSend:hover {
+  background-color: #555555;
+  transition: 5ms;
+}
+
+.browser-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url("./assets/browser-version_background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+}
+
+/* IF BACKGROUND INCLUDES TASKBAR */
+/* .browser-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+
+  background-image: url("./assets/browser-version_background-with-taskbar.png");
+  background-size: 100% auto;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+} */
+
+/*\\//\\//\\//\\// CASE STUDY PURPOSES //\\//\\//\\//\\*/
+
+.caseStudy {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+
+/* from https://www.w3schools.com/css/css_grid.asp# */
+.container {
+  display: grid;
+  width: 65%;
+  height: 85%;
+  margin: 2%;
+  background-color: white;
+  /* overflow-y: scroll ; */
+  grid-template-areas:
+    "header header"
+    "menu content"
+    "footer footer";
+  grid-template-columns: 1fr 6fr;
+  /* allow middle row to be flexible */
+  grid-template-rows: auto 1fr auto;
+  gap: 0.2em;
+  background-color: grey;
+  padding: 0.2em;
+}
+
+.container div {
+  background-color: white;
+  padding: 10px;
+}
+.container div.header {
+  grid-area: header;
+  text-align: center;
+}
+.container div.menu {
+  grid-area: menu;
+}
+
+/* scroll only for this section */
+.container div.content {
+  grid-area: content;
+  overflow-y: auto;
+
+  /* must-have for grid scrolling to work */
+  min-height: 0;
+}
+
+.container div.footer {
+  display: flex;
+  justify-content: space-evenly;
+  grid-area: footer;
+}
+
+#section-01 {
+  height:50%;
+  display: flex;
+  gap: 1%;
+}
+
+
+.prototype-container {
+  width: 100%;
+  height: 120%;
+  position: relative;
+  top: -55%;
+}
+
+.prototype-container iframe {
+  width: 100%;
+  height: 170%;
+  border: none;
+}
+
