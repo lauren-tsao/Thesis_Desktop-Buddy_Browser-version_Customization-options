@@ -18,6 +18,9 @@ const hopperBtn = document.getElementById("hopperBtn");
 const groovyBtn = document.getElementById("groovyBtn");
 const turnipBtn = document.getElementById("turnipBtn");
 
+// character GIF updates
+const idleGIF = document.getElementById("idleGIF");
+
 
 //// MINIKIN CHARACTER ////
 
@@ -52,6 +55,11 @@ function loadCharacter(name) {
       debug: true
     }
   });
+
+  // websiteGIFs switching
+  const websiteGIFs = characters[name].websiteGIFs;
+
+  idleGIF.src = websiteGIFs.idle
 
   // restart hydration/stretch schedule for new character
   character.startQuartHrSchedule();
