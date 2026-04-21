@@ -195,9 +195,19 @@ select {
 }
 
 #section-01 {
-  /* height:50%; */
   display: flex;
   gap: 1%;
+}
+
+
+.s02-problem-it-solves {
+  display: flex;
+  gap: 2%;
+}
+
+.s03-weather-updates {
+  display: flex;
+  gap: 2%;
 }
 
 .section {

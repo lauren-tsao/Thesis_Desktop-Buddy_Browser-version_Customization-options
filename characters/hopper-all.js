@@ -7,5 +7,10 @@ export const hopper = {
 
   websiteGIFs: {
     idle: "./assets/Hopper/anim_Option-C_Hopper_default_idle_white-BG.gif",
+    rain: "./assets/Hopper/hopper_rain-idle.gif",
+    patting: "./assets/Hopper/hopper_pat.gif",
+    hydrate: "./assets/Hopper/hopper_hydrate.gif",
+    stretch: "./assets/Hopper/hopper_stretch.gif",
+    sleep: "./assets/Hopper/hopper_sleep.gif",
   }
 };
