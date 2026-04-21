@@ -136,20 +136,9 @@ select {
   z-index: -1;
 }
 
+
 /*\\//\\//\\//\\// CASE STUDY PURPOSES //\\//\\//\\//\\*/
 
-/* CASE STUDY WINDOW - where Figma prototype is*/
-/* for finals day full screen purposes 1/2 */
-/* .caseStudy {
-  margin-top: 10%;
-  margin-bottom: 1%;
-  display: flex;
-  width: 1550px;
-  height: 705px;
-  justify-content: center;
-} */
-
-/* for portfolio purposes 1/2 */
 .caseStudy {
   display: flex;
   width: 100vw;
@@ -157,19 +146,17 @@ select {
   justify-content: center;
 }
 
-
 /* from https://www.w3schools.com/css/css_grid.asp# */
-/* for laptop */
 .container {
   display: grid;
-  width: 56%;
+  width: 65%;
   height: 85%;
   margin: 2%;
   background-color: white;
   /* overflow-y: scroll ; */
   grid-template-areas:
-    "content content"
-    "content content"
+    "header header"
+    "menu content"
     "footer footer";
   grid-template-columns: 1fr 6fr;
   /* allow middle row to be flexible */
@@ -178,27 +165,6 @@ select {
   background-color: grey;
   padding: 0.2em;
 }
-
-/* for home monitor (because display settings is set to 100%)
-/* .container { */
-  /* display: grid;
-  width: 63%;
-  height: 85%;
-  margin: 2%;
-  background-color: white; */
-  /* overflow-y: scroll ; */
-  /* grid-template-areas:
-    "content content"
-    "content content"
-    "footer footer"; */
-  /* grid-template-columns: 1fr 6fr; */
-  /* allow middle row to be flexible */
-  /* grid-template-rows: auto 1fr auto;
-  gap: 0.2em;
-  background-color: grey;
-  padding: 0.2em;
-} */
-
 
 .container div {
   background-color: white;
@@ -215,7 +181,10 @@ select {
 /* scroll only for this section */
 .container div.content {
   grid-area: content;
-  overflow: hidden;
+  overflow-y: auto;
+
+  /* must-have for grid scrolling to work */
+  min-height: 0;
 }
 
 .container div.footer {
@@ -225,97 +194,22 @@ select {
 }
 
 #section-01 {
-  height: 50%;
+  height:50%;
   display: flex;
   gap: 1%;
 }
 
-/* DISPLAY SETTINGS */
-/* display settings for home monitor (because display settings is set to 100%)
+
 .prototype-container {
-  width: 110%;
-  height: 130%;
+  width: 100%;
+  height: 120%;
   position: relative;
-  display: flex;
-  justify-content: center;
-  top: -13%;
-  left: -5.9%;
+  top: -55%;
 }
 
 .prototype-container iframe {
   width: 100%;
-  height: 100%;
+  height: 170%;
   border: none;
-} */
-
-/* display settings for laptop */
-@media only screen and (max-width: 1920px) {
-.prototype-container {
-  width: 120%;
-  height: 140%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  top: -17%;
-  left: -11.2%;
-}
-
-.prototype-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-}
-
-/* LOADING TEXT */
-/* for finals day full screen purposes 2/2 */
-/* .loading-text {
-  margin-top: 2.25%;
-  display: flex;
-  background-color: white;
-  color: black;
-  position: absolute;
-  width: 868px;
-  height: 490px;
-  justify-content: center;
-  align-items: center;
-  animation-name: loadingFade;
-  animation-delay: 5.5s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  z-index: 10;
-} */
-
-/* for portfolio purposes 2/2 */
-.loading-text {
-  display: flex;
-  background-color: white;
-  color: black;
-  position: absolute;
-  width: 56vw;
-  border-top: solid 0.2em grey;
-  height: 32.1vw;
-  margin: 2%;
-  justify-content: center;
-  align-items: center;
-  animation-name: loadingFade;
-  animation-delay: 5.5s;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  z-index: 10;
-}
-
-@keyframes loadingFade {
-  from {
-    background-color: white;
-    color: black;
-    z-index: 1;
-  }
-
-  to {
-    background-color: transparent;
-    color: transparent;
-    z-index: -1;
-  }
 }
 

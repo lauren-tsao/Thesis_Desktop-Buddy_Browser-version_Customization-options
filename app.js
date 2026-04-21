@@ -76,7 +76,7 @@ const OWM_KEY = "1357e705f9671628bac2004c1f0f736a";
 let FORCE_RAIN = null;
 
 // default location
-let WEATHER_CITY = "New York,US";
+let WEATHER_CITY = "San Francisco,US";
 
 
 async function getWeather(city = WEATHER_CITY) {
@@ -141,48 +141,33 @@ async function getIsRaining(city = WEATHER_CITY) {
 }
 
 
-// ANCHOR - change sleep time (need to change in character.js too)
-// pyjamas mode override weather mode within sleep window
-function isInSleepWindow(now = new Date()) {
-  const mins = now.getHours() * 60 + now.getMinutes();
-  const start = 23 * 60 + 30; // 11:30pm
-  const end = 7 * 60;         // 7:00am
-  return mins >= start || mins < end;
-}
+let lastRainState = null;
 
-function getEffectiveMode(isRaining) {
-  if (isInSleepWindow()) return "pyjamas";
-  return isRaining ? "rain" : "default";
-}
 
-// set up polling + update mode
 async function pollWeatherAndUpdateMode() {
+
   try {
+
     const isRaining = await getIsRaining(WEATHER_CITY);
-    lastRainState = isRaining;
 
-    const nextMode = getEffectiveMode(isRaining);
+    if (lastRainState !== isRaining) {
 
-    if (stateMachine.mode !== nextMode) {
-      console.log("Effective mode:", nextMode);
+      lastRainState = isRaining;
+
+      const nextMode = isRaining ? "rain" : "default";
+
+      console.log("Weather mode:", nextMode);
+
       character.setMode(nextMode);
+
     }
+
   } catch (e) {
+
     console.log("Weather poll failed:", e);
-  }
-}
 
-// for MiniKin to switch precisely at 11.30
-async function refreshModeNow() {
-  try {
-    const isRaining = await getIsRaining(WEATHER_CITY);
-    const nextMode = getEffectiveMode(isRaining);
-    console.log("Refreshed mode:", nextMode);
-
-    character.setMode(nextMode);
-  } catch (e) {
-    console.log("Mode refresh failed:", e);
   }
+
 }
 
 
@@ -306,6 +291,8 @@ character.startQuartHrSchedule();
 // set weather override
 FORCE_RAIN = null;
 
-// weather -> run once now, then every 15 mins from app launch (NOT system clock, so low chance of clashing with hydrate)
-refreshModeNow();
+// run weather check
+pollWeatherAndUpdateMode();
+
+// check every 15 minutes
 setInterval(pollWeatherAndUpdateMode, 15 * 60 * 1000);

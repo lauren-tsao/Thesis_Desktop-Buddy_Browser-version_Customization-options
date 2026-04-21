@@ -398,7 +398,7 @@ export function selectedCharacter({
     const mins = now.getHours() * 60 + now.getMinutes();
     // 11:30pm expressed in total mins since midnight
     // ON DEMO DAY: change this to make MiniKin sleep at an earlier time <<<<<<<<<<<<<<<
-    // ANCHOR - change sleep time (need to change in app.js too)
+    // ANCHOR - change sleep time
     const start = 23 * 60 + 30;
     // 7:00am expressed in total mins since midnight
     const end = 7 * 60;
@@ -490,8 +490,8 @@ export function selectedCharacter({
   //// setup for renderer.js
 
   function setMode(nextMode) {
-    // if next mode is both not default, rain and pyjamas simultaneously, exit function
-    if (!stateMachine.frames[nextMode]) return;
+    // if next mode is both not default and rain simultaneously, exit function
+    if (nextMode !== "default" && nextMode !== "rain") return;
     // if current mode is the next the next mode, exit function
     if (stateMachine.mode === nextMode) return;
 

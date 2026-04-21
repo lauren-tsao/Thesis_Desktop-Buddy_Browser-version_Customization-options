@@ -52,40 +52,19 @@ export const stateMachine = {
 
       // hydrate segment
       HYDRATE: { start: 1000, end: 1149 }
-    },
-
-          //// PYJAMAS MODE ////
-    pyjamas: {
-      IDLE: { start: 1150, end: 1249 },
-
-      // patting segment
-      PAT_IN: { start: 1250, end: 1274 },
-      PAT_LOOP: { start: 1275, end: 1299 },
-      PAT_REVERT: { start: 1300, end: 1324 },
-
-      // sleep segment
-      SLEEP_IN: { start: 1325, end: 1399 },
-      SLEEP_LOOP: { start: 1400, end: 1474 },
-      SLEEP_REVERT: { start: 1475, end: 1499 },
-
-      // stretch segment
-      STRETCH: { start: 1500, end: 1574 },
-
-      // hydrate segment
-      HYDRATE: { start: 1575, end: 1724 }
     }
   },
 
   //// SET MODE ////
 
-  // check if requested mode is either default, rain or pyjamas
+  // check if requested mode is either default or rain
   // if neither, exit function without changing mode (i.e. return false)
   // if either, updates current mode (i.e. return true)
   setMode(nextMode) {
-  if (!this.frames[nextMode]) return false;
-  this.mode = nextMode;
-  return true;
-},
+    if (nextMode !== "default" && nextMode !== "rain") return false;
+    this.mode = nextMode;
+    return true;
+  },
 
   //// GET FRAME SEGMENT FOR CURRENT MODE ////
   
