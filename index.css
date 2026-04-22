@@ -28,7 +28,7 @@ select {
   bottom: 24px;
   user-select: none;
   position: fixed;
-  cursor: default;
+  cursor: pointer;
 }
 
 /* change cursor to grabbing when patting MiniKin */
