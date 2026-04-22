@@ -210,7 +210,7 @@ select {
   align-items: center;
 }
 
-.s03-weather-updates, .s03-event-notifications, .s03-wellness-checks, .s03-bedtime-reminders {
+.s03-weather-updates, .s03-event-notifications, .s03-wellness-checks, .s03-bedtime-reminders, .s04-evaluation, .s05-conclusion {
   display: flex;
   gap: 2%;
   align-items: center;
