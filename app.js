@@ -341,9 +341,27 @@ input.addEventListener("keydown", (e) => {
 });
 
 // character switch buttons
-hopperBtn.addEventListener("click", () => loadCharacter("hopper"));
-groovyBtn.addEventListener("click", () => loadCharacter("groovy"));
-turnipBtn.addEventListener("click", () => loadCharacter("turnip"));
+const characterButtons = [hopperBtn, groovyBtn, turnipBtn];
+
+function setActiveButton(activeBtn) {
+  characterButtons.forEach(btn => btn.classList.remove("selected"));
+  activeBtn.classList.add("selected");
+}
+
+hopperBtn.addEventListener("click", () => {
+  loadCharacter("hopper");
+  setActiveButton(hopperBtn);
+});
+
+groovyBtn.addEventListener("click", () => {
+  loadCharacter("groovy");
+  setActiveButton(groovyBtn);
+});
+
+turnipBtn.addEventListener("click", () => {
+  loadCharacter("turnip");
+  setActiveButton(turnipBtn);
+});
 
 
 //// INITIALIZE ////
@@ -359,3 +377,29 @@ pollWeatherAndUpdateMode();
 
 // check every 15 minutes
 setInterval(pollWeatherAndUpdateMode, 15 * 60 * 1000);
+
+// run weather check
+pollWeatherAndUpdateMode();
+
+// check every 15 minutes
+setInterval(pollWeatherAndUpdateMode, 15 * 60 * 1000);
+
+
+// time and date taskbar overlay
+
+function updateClock() {
+  const now = new Date();
+
+  const timeText = now.toLocaleTimeString([], {
+    hour: "numeric",
+    minute: "2-digit"
+  });
+
+  const dateText = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
+
+  document.getElementById("time").textContent = timeText;
+  document.getElementById("date").textContent = dateText;
+}
+
+updateClock();
+setInterval(updateClock, 1000);

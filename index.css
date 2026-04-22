@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&display=swap');
 
 body {
   margin: 0;
@@ -138,15 +138,14 @@ select {
 .clock-overlay {
   text-align: center;
   position: fixed;
-  bottom: 0.5%;   /* adjust to match your image */
-  right: 3.85%;  /* adjust to match your image */
-  /* background-color: pink; */
+  bottom: 0.5%;   
+  right: 3.85%;  
 
   color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+  font-family: 'Segoe UI', 'Hind', sans-serif;
 
   pointer-events: none;
-  z-index: 10; /* above everything */
+  z-index: 10; 
 }
 
 #time {
@@ -198,6 +197,7 @@ select {
 }
 .container div.menu {
   grid-area: menu;
+  padding: 16%;
 }
 
 /* scroll only for this section */
@@ -245,4 +245,21 @@ select {
 .minikins-purpose {
   margin-left: 4%;
   margin-right: 4%;
+}
+
+.character-btn {
+  font-size: 12px;
+  color: black;
+  padding: 6px 8px;
+  border: 1px solid black;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  margin: 5% 5% 2% 0%;
+}
+
+.character-btn.selected {
+  background-color: black; /* highlight color */
+  color: white;
+  border-color: black;
 }
