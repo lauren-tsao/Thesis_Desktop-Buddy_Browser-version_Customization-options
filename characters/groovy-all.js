@@ -13,5 +13,7 @@ export const groovy = {
     stretch: "./assets/Groovy/groovy_stretch.gif",
     sleep: "./assets/Groovy/groovy_sleep.gif",
     event: "./assets/Groovy/groovy_event-notifications.gif",
+    wk06: "./assets/Blog-GIFs/groovy_WK06_blog-cover-animation.gif",
+    wk09: "./assets/Blog-GIFs/groovy_WK09_blog-cover-animation.gif",
   }
 };

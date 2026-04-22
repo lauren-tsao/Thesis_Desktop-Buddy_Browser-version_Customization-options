@@ -13,5 +13,9 @@ export const turnip = {
     stretch: "./assets/Turnip/turnip_stretch.gif",
     sleep: "./assets/Turnip/turnip_sleep.gif",
     event: "./assets/Turnip/turnip_event-notifications.gif",
+    wk06: "./assets/Blog-GIFs/turnip_WK06_blog-cover-animation.gif",
+    wk09: "./assets/Blog-GIFs/turnip_WK09_blog-cover-animation.gif",
+
+
   }
 };

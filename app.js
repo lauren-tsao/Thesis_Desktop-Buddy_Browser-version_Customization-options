@@ -21,11 +21,13 @@ const turnipBtn = document.getElementById("turnipBtn");
 // character GIF updates
 const idleGIF = document.getElementById("idleGIF");
 const rainGIF = document.getElementById("rainGIF");
-const pattingGIF = document.getElementById("pattingGIF")
-const eventGIF = document.getElementById("eventGIF")
-const hydrateGIF = document.getElementById("hydrateGIF")
-const stretchGIF = document.getElementById("stretchGIF")
-const sleepGIF = document.getElementById("sleepGIF")
+const pattingGIF = document.getElementById("pattingGIF");
+const eventGIF = document.getElementById("eventGIF");
+const hydrateGIF = document.getElementById("hydrateGIF");
+const stretchGIF = document.getElementById("stretchGIF");
+const sleepGIF = document.getElementById("sleepGIF");
+const wk06GIF = document.getElementById("wk06GIF");
+const wk09GIF = document.getElementById("wk09GIF");
 
 
 //// MINIKIN CHARACTER ////
@@ -72,6 +74,8 @@ function loadCharacter(name) {
   hydrateGIF.src = websiteGIFs.hydrate
   stretchGIF.src = websiteGIFs.stretch
   sleepGIF.src = websiteGIFs.sleep
+  wk06GIF.src = websiteGIFs.wk06
+  wk09GIF.src = websiteGIFs.wk09
 
 
   // restart hydration/stretch schedule for new character

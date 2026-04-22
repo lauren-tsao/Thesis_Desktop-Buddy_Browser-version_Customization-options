@@ -13,5 +13,7 @@ export const hopper = {
     stretch: "./assets/Hopper/hopper_stretch.gif",
     sleep: "./assets/Hopper/hopper_sleep.gif",
     event: "./assets/Hopper/hopper_event-notifications.gif",
+    wk06: "./assets/Blog-GIFs/hopper_WK06_blog-cover-animation.gif",
+    wk09: "./assets/Blog-GIFs/hopper_WK09_blog-cover-animation.gif",
   }
 };
