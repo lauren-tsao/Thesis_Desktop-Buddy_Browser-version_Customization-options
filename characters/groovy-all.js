@@ -12,5 +12,6 @@ export const groovy = {
     hydrate: "./assets/Groovy/groovy_hydrate.gif",
     stretch: "./assets/Groovy/groovy_stretch.gif",
     sleep: "./assets/Groovy/groovy_sleep.gif",
+    event: "./assets/Groovy/groovy_event-notifications.gif",
   }
 };

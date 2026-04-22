@@ -22,6 +22,10 @@ const turnipBtn = document.getElementById("turnipBtn");
 const idleGIF = document.getElementById("idleGIF");
 const rainGIF = document.getElementById("rainGIF");
 const pattingGIF = document.getElementById("pattingGIF")
+const eventGIF = document.getElementById("eventGIF")
+const hydrateGIF = document.getElementById("hydrateGIF")
+const stretchGIF = document.getElementById("stretchGIF")
+const sleepGIF = document.getElementById("sleepGIF")
 
 
 //// MINIKIN CHARACTER ////
@@ -64,6 +68,10 @@ function loadCharacter(name) {
   idleGIF.src = websiteGIFs.idle
   rainGIF.src = websiteGIFs.rain
   pattingGIF.src = websiteGIFs.patting
+  eventGIF.src = websiteGIFs.event
+  hydrateGIF.src = websiteGIFs.hydrate
+  stretchGIF.src = websiteGIFs.stretch
+  sleepGIF.src = websiteGIFs.sleep
 
 
   // restart hydration/stretch schedule for new character
@@ -126,7 +134,7 @@ const OWM_KEY = "1357e705f9671628bac2004c1f0f736a";
 let FORCE_RAIN = null;
 
 // default location
-let WEATHER_CITY = "San Francisco,US";
+let WEATHER_CITY = "New York,US";
 
 
 async function getWeather(city = WEATHER_CITY) {

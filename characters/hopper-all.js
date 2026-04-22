@@ -12,5 +12,6 @@ export const hopper = {
     hydrate: "./assets/Hopper/hopper_hydrate.gif",
     stretch: "./assets/Hopper/hopper_stretch.gif",
     sleep: "./assets/Hopper/hopper_sleep.gif",
+    event: "./assets/Hopper/hopper_event-notifications.gif",
   }
 };

@@ -12,5 +12,6 @@ export const turnip = {
     hydrate: "./assets/Turnip/turnip_hydrate.gif",
     stretch: "./assets/Turnip/turnip_stretch.gif",
     sleep: "./assets/Turnip/turnip_sleep.gif",
+    event: "./assets/Turnip/turnip_event-notifications.gif",
   }
 };
