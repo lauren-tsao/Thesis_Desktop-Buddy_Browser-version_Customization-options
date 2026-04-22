@@ -21,6 +21,7 @@ const turnipBtn = document.getElementById("turnipBtn");
 // character GIF updates
 const idleGIF = document.getElementById("idleGIF");
 const rainGIF = document.getElementById("rainGIF");
+const pattingGIF = document.getElementById("pattingGIF")
 
 
 //// MINIKIN CHARACTER ////
@@ -62,6 +63,7 @@ function loadCharacter(name) {
 
   idleGIF.src = websiteGIFs.idle
   rainGIF.src = websiteGIFs.rain
+  pattingGIF.src = websiteGIFs.patting
 
 
   // restart hydration/stretch schedule for new character

@@ -183,6 +183,7 @@ select {
 .container div.content {
   grid-area: content;
   overflow-y: auto;
+  overflow-x: hidden;
 
   /* must-have for grid scrolling to work */
   min-height: 0;
@@ -196,13 +197,17 @@ select {
 
 #section-01 {
   display: flex;
+  align-items: center;
   gap: 1%;
+  margin-bottom: -5%;
+  margin-top:-1%;
 }
 
 
-.s02-problem-it-solves {
+.s02-minikins-role {
   display: flex;
   gap: 2%;
+  align-items: center;
 }
 
 .s03-weather-updates {
@@ -212,19 +217,10 @@ select {
 
 .section {
   margin: 2%;
+  width: 50vw;
 }
 
-
-.prototype-container {
-  width: 100%;
-  height: 120%;
-  position: relative;
-  top: -55%;
+.minikins-purpose {
+  margin-left: 4%;
+  margin-right: 4%;
 }
-
-.prototype-container iframe {
-  width: 100%;
-  height: 170%;
-  border: none;
-}
-
