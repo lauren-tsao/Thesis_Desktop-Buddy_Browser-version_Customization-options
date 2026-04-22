@@ -18,7 +18,7 @@ select {
   font-family: inherit;
 }
 
-/* wrap minikin + bubble so click-through can be toggled for both */
+/* wrap MiniKin + bubble so click-through can be toggled for both */
 #minikin {
   width: 140px;
   margin-right: 20px;
@@ -28,6 +28,12 @@ select {
   bottom: 24px;
   user-select: none;
   position: fixed;
+  cursor: default;
+}
+
+/* change cursor to grabbing when patting MiniKin */
+#minikin.patting {
+  cursor: grabbing;
 }
 
 #bubble {

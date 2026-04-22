@@ -324,9 +324,7 @@ async function sendQuestion() {
 //// EVENTS ////
 
 minikin.addEventListener("click", () => {
-
   toggleBubble();
-
 });
 
 sendBtn.addEventListener("click", sendQuestion);
@@ -361,6 +359,22 @@ groovyBtn.addEventListener("click", () => {
 turnipBtn.addEventListener("click", () => {
   loadCharacter("turnip");
   setActiveButton(turnipBtn);
+});
+
+// patting cursor change
+// change cursor when right mouse is held down on MiniKin
+minikin.addEventListener("mousedown", (e) => {
+  if (e.button === 2) { // right mouse button
+    e.preventDefault();
+    minikin.classList.add("patting");
+  }
+});
+
+// remove cursor state when right mouse is released anywhere
+window.addEventListener("mouseup", (e) => {
+  if (e.button === 2) {
+    minikin.classList.remove("patting");
+  }
 });
 
 
