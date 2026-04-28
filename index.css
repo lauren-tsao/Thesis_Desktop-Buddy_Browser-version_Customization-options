@@ -2,10 +2,8 @@
 
 body {
   margin: 0;
-  width: 400px;
-  height: 200px;
   background: transparent;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: 'Inclusive Sans', sans-serif;
 }
 
@@ -180,7 +178,6 @@ select {
   height: 85%;
   margin: 2%;
   background-color: white;
-  /* overflow-y: scroll ; */
   grid-template-areas:
     "header header"
     "menu content"
@@ -211,7 +208,6 @@ select {
   grid-area: content;
   overflow-y: auto;
   overflow-x: hidden;
-
   /* must-have for grid scrolling to work */
   min-height: 0;
 }
@@ -220,6 +216,8 @@ select {
   display: flex;
   justify-content: space-evenly;
   grid-area: footer;
+  flex-wrap: wrap;
+  gap: 1em;
 }
 
 #section-01 {
@@ -268,4 +266,192 @@ select {
   background-color: black; /* highlight color */
   color: white;
   border-color: black;
+}
+
+/* ---- Mobile-only hint ---- */
+.mobile-only {
+  display: none;
+}
+
+/* ================================================
+   TABLET  (≤ 900px)
+   ================================================ */
+@media (max-width: 900px) {
+ 
+  .container {
+    width: 90%;
+    height: auto;
+  }
+ 
+  .section {
+    width: auto;
+  }
+}
+
+/* ================================================
+   MOBILE  (≤ 600px)
+   ================================================ */
+@media (max-width: 600px) {
+ 
+  /* Stack the whole case study full-width */
+  .caseStudy {
+    width: 100%;
+  }
+ 
+  .container {
+    width: 100%;
+    margin: 0;
+    height: auto;
+ 
+    /* Collapse sidebar: nav goes above content, footer below */
+    grid-template-areas:
+      "header"
+      "menu"
+      "content"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+  }
+ 
+  /* Horizontal scrollable nav on mobile */
+  .container div.menu {
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    white-space: nowrap;
+    border-bottom: 1px solid #eee;
+    -webkit-overflow-scrolling: touch;
+  }
+ 
+  .container div.menu p {
+    display: flex; /* hide the <p> spacers used between links */
+    font-size: 0.8em;
+  }
+ 
+  .container div.menu a {
+    flex-shrink: 0;
+  }
+ 
+  /* Content area no longer needs fixed scroll box */
+  .container div.content {
+    overflow-y: visible;
+    min-height: unset;
+  }
+ 
+  /* Header: smaller title on mobile */
+  .container div.header h1 {
+    font-size: 1.5rem;
+  }
+ 
+  /* Section full width */
+  .section {
+    width: 100%;
+    margin: 0;
+    padding: 12px 0;
+    box-sizing: border-box;
+  }
+ 
+  /* All side-by-side flex rows → stack vertically */
+  #section-01,
+  .s02-minikins-role,
+  .s03-weather-updates,
+  .s03-event-notifications,
+  .s03-wellness-checks,
+  .s03-bedtime-reminders,
+  .s04-evaluation,
+  .s05-conclusion {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+ 
+  /* GIFs: don't overflow, center them */
+  .s02-minikins-role img,
+  .s03-weather-updates img,
+  .s03-event-notifications img,
+  .s03-wellness-checks img,
+  .s03-bedtime-reminders img,
+  .s04-evaluation img,
+  .s05-conclusion img,
+  #section-01 img {
+    height: auto !important;   /* override inline height="80%" */
+    width: 100%;
+    max-width: 220px;
+    display: block;
+    margin: 0 auto;
+  }
+ 
+  /* Inline style overrides for evaluation/conclusion images */
+  .s04-evaluation > div,
+  .s05-conclusion > div {
+    width: 100% !important;
+  }
+ 
+  /* Footer stacks nicely */
+  .container div.footer {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 5px;
+    gap: 0.5em;
+    font-size: 0.8em;
+  }
+ 
+  /* MiniKin: slightly smaller on mobile, stay in corner */
+  #minikin {
+    width: 100px;
+    bottom: 130px;
+    right: -10px;
+  }
+ 
+  /* Bubble: keep within screen width on mobile */
+  #bubble {
+    right: auto;
+    left: 50px;
+    bottom: 150px;
+    max-width: calc(80vw - 120px);
+    padding-right: 20px;
+  }
+ 
+  /* Move bubble tail to left side on mobile */
+#bubble::before {
+  left: auto;
+  right: -12px;
+  border-right: none;
+  border-left: 12px solid black;
+}
+
+#bubble::after {
+  left: auto;
+  right: -10px;
+  border-right: none;
+  border-left: 10.5px solid white;
+}
+ 
+  /* Clock: smaller, don't overlap MiniKin */
+  .clock-overlay {
+    bottom: 4px;
+    right: 108px;
+    font-size: 0.65em;
+  }
+ 
+  /* Show mobile-only hint */
+  .mobile-only {
+    display: block;
+  }
+ 
+  /* Character buttons: larger tap targets */
+  .character-btn {
+    padding: 8px 12px;
+    min-height: 40px;
+    font-size: 13px;
+  }
+
+  #ec-cycle {
+    position: relative;
+    width: 120%;
+    right: 30px;
+  }
 }
